@@ -1,0 +1,13 @@
+{
+  "tittel": "Title of the test series",
+  "beskrivelse": "Description of the test series",
+  "arkivdelstatus": "Opprettet",
+  "dokumentmedium": {
+    "kode": "E",
+    "kodenavn": "Elektronisk arkiv"
+  },
+  "arkivdelstatus": {
+    "kode": "A",
+    "kodenavn": "Aktiv periode"
+  }
+}

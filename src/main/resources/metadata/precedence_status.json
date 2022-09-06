@@ -1,0 +1,12 @@
+{
+  "PrecedenceStatus": [
+    {
+      "code": "G",
+      "codename": "Gjeldende"
+    },
+    {
+      "code": "F",
+      "codename": "Foreldet"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "CaseStatus": [
+    {
+      "code": "B",
+      "codename": "Under behandling"
+    },
+    {
+      "code": "A",
+      "codename": "Avsluttet"
+    },
+    {
+      "code": "U",
+      "codename": "Utgår"
+    },
+    {
+      "code": "R",
+      "codename": "Opprettet av saksbehandler"
+    },
+    {
+      "code": "S",
+      "codename": "Avsluttet av saksbehandler"
+    },
+    {
+      "code": "P",
+      "codename": "Unntatt prosesstyring"
+    },
+    {
+      "code": "F",
+      "codename": "Ferdig fra saksbehandler"
+    }
+  ]
+}

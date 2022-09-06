@@ -1,0 +1,12 @@
+{
+  "ElectronicSignatureVerified": [
+    {
+      "code": "I",
+      "codename": "Signatur påført, ikke verifisert"
+    },
+    {
+      "code": "V",
+      "codename": "Signatur påført og verifisert"
+    }
+  ]
+}

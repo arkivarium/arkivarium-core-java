@@ -1,0 +1,20 @@
+{
+  "DocumentType": [
+    {
+      "code": "B",
+      "codename": "Brev"
+    },
+    {
+      "code": "R",
+      "codename": "Rundskriv"
+    },
+    {
+      "code": "F",
+      "codename": "Faktura"
+    },
+    {
+      "code": "O",
+      "codename": "Ordrebekreftelse"
+    }
+  ]
+}

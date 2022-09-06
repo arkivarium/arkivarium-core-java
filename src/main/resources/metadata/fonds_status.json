@@ -1,0 +1,12 @@
+{
+  "FondsStatus": [
+    {
+      "code": "O",
+      "codename": "Opprettet"
+    },
+    {
+      "code": "A",
+      "codename": "Avsluttet"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+
+"-" means finished
+"*" means yet to be completed
+
+SystemID : Not sure how to deal with
+
+-Arkivdelstatus : SeriesStatus
+-Arkivstatus : FondsStatus
+-Avskrivningsmåte : SignOffMethod
+-Dokumentmedium : DocumentMedium
+-Dokumentstatus  DocumentStatus
+-Dokumenttype : DocumenType
+-ElektroniskSignaturSikkerhetsnivå : ElectronicSignatureSecurityLevel
+-ElektroniskSignaturVerifisert : ElectronicSignatureVerified
+-FlytStatus : FlowStatus
+-Format : Format
+*Graderingskode : ClassifiedCode
+*Hendelsetype : EventType
+-Journalposttype : RegistryEntryType
+-Journalstatus : RegistryEntryStatus
+*Kassasjonsvedtak : DisposalDecision
+-Klassifikasjonstype : ClassificationType
+-Korrespondanseparttype : CorrespondencePartType
+-Land : Country
+-Mappetype : FileType
+-Merknadstype : CommentType
+*Møtesakstype : MeetingFileType
+*MøtedeltakerFunksjon : MeetingParticipantFunction
+*Møteregistreringsstatus : MeetingRegistrationStatus
+*Møteregistreringstype : MeetingRegistrationType
+*Postnummer  185
+-Presedensstatus : PrecedenceStatus
+-SakspartRolle : CasePartRole
+-SkjermingDokument : ScreeningDocument
+-SkjermingMetadata : ScreeningMetadata
+*Slettingstype : DeletionType
+-Saksstatus : CaseStatus
+*Tilgangskategori : AccessCategory
+*Tilgangsrestriksjon : AccessRestriction
+*TilknyttetRegistreringSom : AssociatedWithRecordAs
+-Variantformat : VariantFormat
+

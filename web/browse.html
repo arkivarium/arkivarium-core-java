@@ -1,0 +1,143 @@
+<!doctype html>
+<html ng-app="nikita">
+<head>
+  <base href="/nikita-noark5-core/web/">
+  <meta charset="UTF-8">
+  <title>Nikita browser</title>
+  <script src="dependencies/internal/config.js"></script>
+  <script src="dependencies/vendor/META-INF/resources/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+  <script src="dependencies/vendor/META-INF/resources/webjars/angularjs/1.7.0/angular.min.js"></script>
+  <script src="dependencies/vendor/META-INF/resources/webjars/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="dependencies/vendor/META-INF/resources/webjars/popper.js/1.14.1/umd/popper.js"></script>
+    <script
+            src="dependencies/vendor/META-INF/resources/webjars/angular-file-upload/12.2.13/ng-file-upload-all.js"></script>
+  <link href="dependencies/vendor/META-INF/resources/webjars/bootstrap/4.1.1/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css">
+
+  <link
+    href="dependencies/vendor/META-INF/resources/webjars/font-awesome/5.0.9/web-fonts-with-css/css/fontawesome-all.css"
+    rel="stylesheet" type="text/css">
+
+    <script src="dependencies/internal/common_functionality.js"></script>
+  <script src="dependencies/internal/browse.js"></script>
+</head>
+
+<body ng-controller="BrowseController">
+
+<nav class="navbar navbar-expand-sm bg-light">
+  <a class="navbar-brand" href="https://nikita.hioa.no/browse.html">
+    <span ng-show="!loggedIn">Nikita browser (Not logged in)</span>
+    <span ng-show="loggedIn">Nikita browser ({{emailAddress}})</span>
+  </a>
+
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
+        <span class="fa fa-bars"></span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">
+          Logg inn &nbsp; <span class="fas fa-sign-in-alt"></span></a>
+        <a class="nav-link" href="#" ng-click="doLogout()">
+          Logg ut &nbsp; <span class="fas fa-sign-out-alt"></span></a>
+      </div>
+    </li>
+  </ul>
+</nav>
+<div class="card">
+  <div class="card-body">
+    <div class="container">
+
+      <div class="card">
+        <div class="card-body">
+          <div class="container">
+
+            <div ng-repeat="current in results" class="card">
+              <div class="card-header">
+                HTTP Request ({{ selectedHref }})
+              </div>
+              <div class="card-body">
+                <div>
+                  <table class="table table-hover">
+                    <tbody ng-repeat="(key, value) in filterLinks(current)">
+                    <tr>
+                      <td style="width: 16%">
+                        {{ key }}
+                      </td>
+                      <td style="width: 84%">
+                        {{ value }}
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="card-footer">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item active"
+                        ng-click="selectParent()" aria-current="page">
+                      <span ng-show="selectedHref != parentHref">Parent ({{ parentHref }})</span>
+                      <span ng-show="selectedHref == parentHref">Parent ()</span>
+                    </li>
+                  </ol>
+                </nav>
+                <div class="card" ng-repeat="link in current._links"
+                     ng-click="selectLink(link.href)">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-6 small">
+                        <a href="#" ng-click="link.href" class="card-link">{{ link.rel }}</a>
+                      </div>
+                      <div class="col-lg-6 small">
+                        <a href="#" ng-click="link.href" class="card-link">{{ link.href }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- modal to login -->
+<div class="modal fade" id="loginModal" login-modal>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Logg på nikita</h4>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="panel-body">
+            <form role="form">
+              <fieldset>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Epost adresse"
+                         name="emailAddress" type="email" ng-model="emailAddress" autofocus>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Passord"
+                         name="password" type="password" ng-model="password">
+                </div>
+                <div class="btn-toolbar">
+                  <button type="button" ng-click="doLogin()"
+                          class="btn btn-primary pull-right">Logg på
+                  </button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End modal to login -->
+</body>
+</html>

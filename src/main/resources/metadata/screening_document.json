@@ -1,0 +1,12 @@
+{
+  "ScreeningDocument": [
+    {
+      "code": "H",
+      "codename": "Skjerming av hele dokumentet"
+    },
+    {
+      "code": "D",
+      "codename": "Skjerming av deler av dokumentet"
+    }
+  ]
+}

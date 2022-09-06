@@ -1,0 +1,36 @@
+{
+  "CorrespondencePartType": [
+    {
+      "code": "EA",
+      "codename": "Avsender"
+    },
+    {
+      "code": "EM",
+      "codename": "Mottaker"
+    },
+    {
+      "code": "EK",
+      "codename": "Kopimottaker"
+    },
+    {
+      "code": "GM",
+      "codename": "Gruppemottaker"
+    },
+    {
+      "code": "IA",
+      "codename": "Intern avsender"
+    },
+    {
+      "code": "IM",
+      "codename": "Intern mottaker"
+    },
+    {
+      "code": "IK",
+      "codename": "Intern kopimottaker"
+    },
+    {
+      "code": "IS",
+      "codename": "Medavsender"
+    }
+  ]
+}

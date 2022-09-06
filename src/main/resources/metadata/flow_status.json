@@ -1,0 +1,16 @@
+{
+  "FlowStatus": [
+    {
+      "code": "G",
+      "codename": "Godkjent"
+    },
+    {
+      "code": "I",
+      "codename": "Ikke godkjent"
+    },
+    {
+      "code": "S",
+      "codename": "Sendt tilbake til saksbehandler med kommentarer"
+    }
+  ]
+}

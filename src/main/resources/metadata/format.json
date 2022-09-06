@@ -1,0 +1,84 @@
+{
+  "Format": [
+    {
+      "code": "UNKNOWN",
+      "codename": "Ukjent filformat"
+    },
+    {
+      "code": "x-fmt/111",
+      "codename": "Ren tekst"
+    },
+    {
+      "code": "fmt/353",
+      "codename": "TIFF versjon 6"
+    },
+    {
+      "code": "fmt/95",
+      "codename": "PDF/A 1a - ISO 19005-1:2005"
+    },
+    {
+      "code": "fmt/354",
+      "codename": "PDF/A 1b - ISO 19005-1:2005"
+    },
+    {
+      "code": "fmt/101",
+      "codename": "XML"
+    },
+    {
+      "code": "fmt/42",
+      "codename": "JPEG"
+    },
+    {
+      "code": "fmt/1246",
+      "codename": "SOSI"
+    },
+    {
+      "code": "x-fmt/386",
+      "codename": "MPEG-2"
+    },
+    {
+      "code": "fmt/134",
+      "codename": "MP3"
+    },
+    {
+      "code": "fmt/4",
+      "codename": "GIF"
+    },
+    {
+      "code": "fmt/13",
+      "codename": "PNG 1.2"
+    },
+    {
+      "code": "fmt/96",
+      "codename": "HTML"
+    },
+    {
+      "code": "fmt/278",
+      "codename": "Email RFC 822 message"
+    },
+    {
+      "code": "fmt/703",
+      "codename": "WAV"
+    },
+    {
+      "code": "fmt/950",
+      "codename": "Email RFC 2045 MIME message"
+    },
+    {
+      "code": "x-fmt/18",
+      "codename": "CSV"
+    },
+    {
+      "code": "fmt/136",
+      "codename": "OpenDocument Text (odt)"
+    },
+    {
+      "code": "fmt/137",
+      "codename": "OpenDocument Spreadsheet (ods)"
+    },
+    {
+      "code": "fmt/138",
+      "codename": "OpenDocument Presentation (odp)"
+    }
+  ]
+}

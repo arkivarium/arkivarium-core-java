@@ -1,0 +1,52 @@
+{
+  "ScreeningMetadata": [
+    {
+      "code": "KID",
+      "codename": "Skjerming klasseID"
+    },
+    {
+      "code": "TKL",
+      "codename": "Skjerming tittel klasse"
+    },
+    {
+      "code": "TM1",
+      "codename": "Skjerming tittel mappe - unntatt første linje"
+    },
+    {
+      "code": "TMO",
+      "codename": "Skjerming tittel mappe - utvalgte ord"
+    },
+    {
+      "code": "NPS",
+      "codename": "Skjerming navn part i sak"
+    },
+    {
+      "code": "TR1",
+      "codename": "Skjerming tittel registrering - unntatt første linje"
+    },
+    {
+      "code": "TRO",
+      "codename": "Skjerming tittel registrering - utvalgte ord"
+    },
+    {
+      "code": "NA",
+      "codename": "Skjerming navn avsender"
+    },
+    {
+      "code": "NM",
+      "codename": "Skjerming navn mottaker"
+    },
+    {
+      "code": "TD",
+      "codename": "Skjerming tittel dokumentbeskrivelse"
+    },
+    {
+      "code": "MT",
+      "codename": "Skjerming merknadstekst"
+    },
+    {
+      "code": "M",
+      "codename": "Midlertidig skjerming"
+    }
+  ]
+}

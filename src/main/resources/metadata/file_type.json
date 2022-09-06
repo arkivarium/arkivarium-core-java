@@ -1,0 +1,20 @@
+{
+  "FileType": [
+    {
+      "code": "SKM",
+      "codename": "Saksmappe"
+    },
+    {
+      "code": "PLM",
+      "codename": "Personalmappe"
+    },
+    {
+      "code": "BYM",
+      "codename": "Byggemappe"
+    },
+    {
+      "code": "MOM",
+      "codename": "Møtemappe"
+    }
+  ]
+}

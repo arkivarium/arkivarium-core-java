@@ -1,0 +1,28 @@
+{
+  "ClassifiedCode": [
+    {
+      "code": "SH",
+      "codename": "Strengt hemmelig (sikkerhetsgrad)"
+    },
+    {
+      "code": "H",
+      "codename": "Hemmelig (sikkerhetsgrad)"
+    },
+    {
+      "code": "K",
+      "codename": "Konfidensielt (sikkerhetsgrad)"
+    },
+    {
+      "code": "B",
+      "codename": "Begrenset (sikkerhetsgrad)"
+    },
+    {
+      "code": "F",
+      "codename": "Fortrolig (beskyttelsesgrad)"
+    },
+    {
+      "code": "SF",
+      "codename": "Strengt fortrolig (beskyttelsesgrad)"
+    }
+  ]
+}

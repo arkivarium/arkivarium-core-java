@@ -1,0 +1,42 @@
+{
+  "korrespondanseparttype": {
+    "kode": "EA",
+    "beskrivelse": "Avsender"
+  },
+  "foedselsnummer": "09088512345",
+  "dnummer": "dddddd1234",
+  "navn": "Frank Grimes",
+  "postadresse": {
+    "adresselinje1": "ADRL1: 742 Evergreen Terrace",
+    "adresselinje2": "ADRL2: 742 Evergreen Terrace",
+    "adresselinje3": "ADRL3: 742 Evergreen Terrace",
+    "postnummer": {
+      "kode": "90210",
+      "kodenavn": "?"
+    },
+    "poststed": "Springfield",
+    "landkode": {
+      "kode": "US",
+      "kodenavn": "USA"
+    }
+  },
+  "bostedsadresse": {
+    "adresselinje1": "ADRL1: 743 Evergreen Terrace",
+    "adresselinje2": "ADRL2: 743 Evergreen Terrace",
+    "adresselinje3": "ADRL3: 743 Evergreen Terrace",
+    "postnummer": {
+      "kode": "90210",
+      "kodenavn": "?"
+    },
+    "poststed": "Springfield",
+    "landkode": {
+      "kode": "US",
+      "kodenavn": "USA"
+    }
+  },
+  "kontaktinformasjon": {
+    "epostadresse": "nikita@example.com",
+    "mobiltelefon": "123456789",
+    "telefonnummer": "987654321"
+  }
+}

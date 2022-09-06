@@ -1,0 +1,20 @@
+{
+  "PartRole": [
+    {
+      "code": "KLI",
+      "codename": "Klient"
+    },
+    {
+      "code": "PAA",
+      "codename": "Pårørende"
+    },
+    {
+      "code": "FORM",
+      "codename": "Formynder"
+    },
+    {
+      "code": "ADV",
+      "codename": "Advokat"
+    }
+  ]
+}

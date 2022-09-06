@@ -1,0 +1,15 @@
+{
+  "filstoerrelse": 19610,
+  "filnavn": "nikita_test_doc.odt",
+  "mimeType": "application/vnd.oasis.opendocument.text",
+  "versjonsnummer" : 1,
+  "sjekksum": "ff775e38a10b3a0eec650775f72e8ba33e3df7bdace295409b490c6b85f894b0",
+  "variantformat" : {
+    "kode": "P",
+    "kodenavn": "Produksjonsformat"
+  },
+  "format" : {
+    "kode": "fmt/290",
+    "kodenavn": "OpenDocument Text"
+  }
+}
