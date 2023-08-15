@@ -21,14 +21,15 @@ Release 0.4 2019-05-22 ()
 Update the version number in pom.xml from: 
 
 ``` 
-  <groupId>nikita</groupId>
+  <groupId>app</groupId>
   <artifactId>nikita-noark5-core</artifactId>
   <packaging>jar</packaging>
   <version>0.3</version>
 ```
 to:
+
 ``` 
-  <groupId>nikita</groupId>
+  <groupId>app</groupId>
   <artifactId>nikita-noark5-core</artifactId>
   <packaging>jar</packaging>
   <version>0.4</version>
@@ -55,4 +56,4 @@ Release 0.4 2019-05-22 (2a803f1a203fc14921081d519ab13bc623116a14)
 ## 4. Send mail to mailing list
 
 Post a copy of the NEWS entry with links to the project and latest
-release to the mailing list nikita-noark@nuug.no.
+release to the mailing list app-noark@nuug.no.

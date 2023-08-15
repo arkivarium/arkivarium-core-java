@@ -16,9 +16,13 @@ developing recursive searches when trying to search the archive for a single ter
 
 ## Nikitas OData implementation
 
-Nikita implements support for OData using antlr4. If you want to see how we have implemented OData please take a look at *ODataLexer.g4* and *ODataParser.g4*. These are originally adapted from the MySQL antlr4 descriptions. 
+Nikita implements support for OData using antlr4. If you want to see how we have implemented OData please take a look at
+*ODataLexer.g4* and *ODataParser.g4*. These are originally adapted from the MySQL antlr4 descriptions.
 
-The class NikitaODataWalker contains the main functionality for parsing. There are a number of subclasses (NikitaODataToHQLWalker, NikitaODataToSQLWalker and NikitaODataToESWalker). Currently, nikita is only actively developing the HQL version. The others are documentation showing how it could be possible to extend the base class for OData translation.
+The class NikitaODataWalker contains the main functionality for parsing. There are a number of subclasses (
+NikitaODataToHQLWalker, NikitaODataToSQLWalker and NikitaODataToESWalker). Currently, app is only actively developing
+the HQL version. The others are documentation showing how it could be possible to extend the base class for OData
+translation.
 
 The queries our OData implementation supports are documented in TestOData.java.
  
@@ -67,7 +71,7 @@ SQL (Norwegian Noark names) :
     select * from mappe where mappe.referanseKlasse IN     
           (select systemID from klasse where klasseID = '12/2')     
 
-SQL (English nikita names) :
+SQL (English app names) :
 
    
     select * from as_file where as_file.file_class_id IN     
@@ -81,13 +85,13 @@ It is not clear to me how to construct a generic approach (OData to S/HQL) to
       IN (select SOMETHING from as_class where class_id = '12/2')
 
 The *SOMETHING* is the issue here as outside of our Noark context, it is not
-possible to know what *SOMETHING* is. But within the Noark/nikita context it
+possible to know what *SOMETHING* is. But within the Noark/app context it
 is not a problem to figure out that *SOMETHING* is system_id. We can even add
-a method to the @Entity classes that pulls out the name of the primary key or 
-it may be possible to do via reflection. 
+a method to the @Entity classes that pulls out the name of the primary key or
+it may be possible to do via reflection.
 
-The previous part is also difficult to solve 
-   
+The previous part is also difficult to solve
+
     select * from as_file where as_file.file_class_id IN
 
 The @Entity class does not contain any useful methods that can help solve this
@@ -150,9 +154,9 @@ part of the method name (getSeries). Nikita generally uses an approach
 getReferenceVariableName, but in some cases we might have used getVariableName.
 As such, both approaches must be supported. These are not really caveats as I 
 think we can reasonably expect the getters exist and follow a standardised
-approach to naming.  
+approach to naming.
 
-This approach is a little excessive as we could just make sure all nikita 
+This approach is a little excessive as we could just make sure all app
 @Entity class with a @OneToMany foreign name the variable reference'Object'. I think that 
 approach is too simple and starts creating requirements on the domain model.
 However, the same can be argued about using the @OneToMany. So this is just an

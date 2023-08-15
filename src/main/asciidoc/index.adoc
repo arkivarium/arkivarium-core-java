@@ -18,7 +18,7 @@ nikita-noark5-core (Noark 5v5). Noark 5v5 is a Hateoas level 3
 API and makes active use of "links" within the API.
 
 === About
-nikita is an open source implementation of the Norwegian  recordkeeping / archiving standard
+app is an open source implementation of the Norwegian  recordkeeping / archiving standard
 Noark 5. The source code is hosted on https://gitlab.com/OsloMet-ABI/nikita-noark5-core[gitlab].
 This document refers to two Noark resources. The first is the actual Noark 5 standard, a document
 maintained by the Norwegian National Archive. The second is a the Noark 5 interface standard. This
@@ -44,7 +44,7 @@ at startup. Nikita supports the following authentication, that are enabled using
 
 Note: We have not checked whether or not we can support multiple authentication methods at the
 same time. Currently you *have* to start a single authentication profile. If no authentication profile
-is selected, nikita defaults to the OAuth2 approach.
+is selected, app defaults to the OAuth2 approach.
 
 === Basic
 The simplest authentication method where the username and password are passed
@@ -91,7 +91,7 @@ $  mvn spring-boot:run -Dspring-boot.run.profiles=security-form-authentication
 
 
 === OAuth2
-nikita uses spring-security OAuth2 implementation as the default authentication method. There is
+app uses spring-security OAuth2 implementation as the default authentication method. There is
 no requirement to set it as a profile. OAuth2 can be a bit daunting and complex to explore as ....
 There are plenty of online resources to explore the subject.
 
@@ -99,12 +99,12 @@ There are plenty of online resources to explore the subject.
 [source,bash]
 ----
 $ curl -v -H 'Authorization: Basic bmlraXRhLWNsaWVudDpzZWNyZXQ=' \
-  -X POST  'http://localhost:8092/noark5v5/oauth/token?grant_type=password&client_id=nikita-client&username=admin&password=password'
+  -X POST  'http://localhost:8092/noark5v5/oauth/token?grant_type=password&client_id=app-client&username=admin&password=password'
 ----
 
 The OAuth2 endpoint is protected with Basic authentication. This is the reason for
 -H 'Authorization: Basic bmlraXRhLWNsaWVudDpzZWNyZXQ='. The string bmlraXRhLWNsaWVudDpzZWNyZXQ=
-is 'nikita-client:secret' base64 encoded.
+is 'app-client:secret' base64 encoded.
 
 If you wish to change this, take a look at the *.yml in the resources directory where you will
 see the following properties defined:
@@ -127,8 +127,8 @@ see the following properties defined:
 
 
 === JWT via OAuth2
-nikita supports the use of JWT tokens as well. Tokens are issued in the same way as OAuth2
-tokens are issued, but nikita has to be started with the security-oauth2-jwt-authentication
+app supports the use of JWT tokens as well. Tokens are issued in the same way as OAuth2
+tokens are issued, but app has to be started with the security-oauth2-jwt-authentication
 profile.
 
 
@@ -147,12 +147,12 @@ JWT is described in https://tools.ietf.org/rfc/rfc7519.txt[RFC 7519]. More info 
 at https://jwt.io/introduction/[jwt.io]
 
 === Password encoding
-For all the above authentication methods, nikita uses springs built-in BCrypt password encoder.
+For all the above authentication methods, app uses springs built-in BCrypt password encoder.
 
 
 === Payload encoding and structure
 The Noark 5 standard expects data to ne UTF-8 when extracted to be deposited with an archive institution.
-As such nikita has a requirement that
+As such app has a requirement that
 
 == The API
 
@@ -202,9 +202,9 @@ mime type set also works.
 
 
 === HTTP header fields
-nikita is forgiving in terms of having HTTP header fields set. It will try an
+app is forgiving in terms of having HTTP header fields set. It will try an
 figure out missing information (e.g. mime-type). If it can not figure out
-missing information, it will reject the file upload. If nikita detects incorrect
+missing information, it will reject the file upload. If app detects incorrect
 information e.g. a docx file with content-type set as application/pdf it will
 reject the upload.
 

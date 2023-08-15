@@ -11,6 +11,14 @@
     {
       "code": "S",
       "codename": "Sendt tilbake til saksbehandler med kommentarer"
+    },
+    {
+      "code": "F",
+      "codename": "Til fordeling"
+    },
+    {
+      "code": "U",
+      "codename": "Under behandling"
     }
   ]
 }

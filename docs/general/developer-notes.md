@@ -32,10 +32,10 @@ URL-escape the URL.
 ### Support for x-forward-for
 We will start to support x-forward-for when generating hateaos links. This
 will make the core less reliant on hard coded addresses in core and should
-make it easier when firing up the core behind a proxy. Updating this will 
+make it easier when firing up the core behind a proxy. Updating this will
 take some time, but we have tested it on the root of the application.
 
-If x-forward-for is not set on an incoming request, nikita will use the value 
+If x-forward-for is not set on an incoming request, app will use the value
 assigned in the application.yml file hateoas.publicAddress
 
 ### Login from root of application
@@ -44,19 +44,19 @@ assigned in the application.yml file hateoas.publicAddress
     curl  -v   --header Accept:application/vnd.noark5-v4+json  -X GET http://localhost:8092/noark5v5/  
     
 will return the following js:
-    
+
     {
       "links": [
        {
          "href": "http://localhost:8092/noark5v5/oauth",
-         "rel": "http://nikita.arkivlab.no/noark5/v5/login/rfc6749/"
+         "rel": "http://app.arkivlab.no/noark5/v5/login/rfc6749/"
        }
       ]
     }
 
 You can then login in as follows:
 
-    curl -v -H 'Content-Type: application/json' -H 'Authorization: Basic bmlraXRhLWNsaWVudDpzZWNyZXQ=' -X POST "http://localhost:8092/noark5v5/oauth/token?grant_type=password&client_id=nikita-client&username=admin&password=password"
+    curl -v -H 'Content-Type: application/json' -H 'Authorization: Basic bmlraXRhLWNsaWVudDpzZWNyZXQ=' -X POST "http://localhost:8092/noark5v5/oauth/token?grant_type=password&client_id=app-client&username=admin&password=password"
 
 
 ### Something strange about CORS
@@ -65,12 +65,12 @@ We have cleaned up and removed a lot of code over the last while so the
 application should be relying as much as possible on the basic spring
 boot setup. However I see that there are two CorsFilter in the application
 and this is not a good thing. Our orginal CorsFilter:
-  
-    nikita.webapp.spring.SimpleCORSFilter
+
+    app.webapp.spring.SimpleCORSFilter
  
  and 
- 
-    nikita.webapp.spring.security.configs.authentication.NikitaWebSecurityConfig there 
+
+    webapp.security.NikitaWebSecurityConfig there
     
 contains a bean _corsFilterRegistrationBean_
 
@@ -114,13 +114,13 @@ implemented.
  
 ### Conversion process
 
-We've given this a little more thought. There probably needs to be an own 
-application that can handle this. We should take a look at archivematica 
-to see what they have done. A quick check mentioned a service that they
+We've given this a little more thought. There probably needs to be an own
+application that can handle this. We should take a look at archivematica
+to see what they have done. A quick check mentioned a app.service that they
 wanted to look closer at in the future so I think we will have a go at
-this ourselves. I think it could be a RabbitMQ service where we pipeline
+this ourselves. I think it could be a RabbitMQ app.service where we pipeline
 documents to be converted. Once a document reaches the head of the queue
-it is sent to a conversion service. This could be a pixedit server for
+it is sent to a conversion app.service. This could be a pixedit server for
 OOXML-based documents and unoconv for ODF-based documents. Further
 audio and video could also be included here. This tool could be further
 developed to check validity of file formats as well.
@@ -174,16 +174,17 @@ We are currently using the following approach in Java
     p.waitFor();
 
 We tried using the UNO API with LibreOffice but ran into a number of problems.
-Eventually based on the following [blog](https://technology.amis.nl/2006/07/19/getting-started-with-the-openofficeorg-api-part-ii-starting-openofficeorg-with-jars-not-in-the-ooo-install-dir/)
-we saw that you had to have some LibreOffice jars from the LibreOffice 
-installation on the classpath and we were able to connect to LibreOffice 
-that way. This would have made an install of nikita very messy, having to 
+Eventually based on the
+following [blog](https://technology.amis.nl/2006/07/19/getting-started-with-the-openofficeorg-api-part-ii-starting-openofficeorg-with-jars-not-in-the-ooo-install-dir/)
+we saw that you had to have some LibreOffice jars from the LibreOffice
+installation on the classpath and we were able to connect to LibreOffice
+that way. This would have made an install of app very messy, having to
 update the pom file on each download. Therefore we dropped that approach
 for the moment. We foresee that we require a queue system to handle the
-conversion of files where perhaps a user requests the conversion and a 
-conversion tool converts the file as soon as possible. This will have to 
+conversion of files where perhaps a user requests the conversion and a
+conversion tool converts the file as soon as possible. This will have to
 be non-blocking in order to scale. So for the moment we have a "blocking"
-approach using unoconv, but it's just proof-of-concept. 
+approach using unoconv, but it's just proof-of-concept.
 
 ### Support for JSON PATCH
 
@@ -212,16 +213,16 @@ autoconfiguration.
 With this change we got rid of a number of annotations and now let spring 
 automagically configure everything.
 
-We keep the webapp separate from common logic using package names, so if anyone 
-wants to reuse a lot of of the ORM layer it should be possible to take it 
-from nikita.common.
+We keep the webapp separate from common logic using package names, so if anyone
+wants to reuse a lot of of the ORM layer it should be possible to take it
+from app.common.
 
-We used this opportunity to change the package naming as well.  The old 
-naming was no.arkivlab.hioa.nikita. This naming came from an initiative to try 
-to create a community for public archives software called arkivlab. Nothing 
-ever came of this initiative and the project is firmly anchored at OsloMet 
-(earlier HiOA) so the need for package naming to include organisation is 
-redundant. HiOA is now called OsloMet so removing hioa from the codebase 
+We used this opportunity to change the package naming as well. The old
+naming was no.arkivlab.hioa.app. This naming came from an initiative to try
+to create a community for public archives software called arkivlab. Nothing
+ever came of this initiative and the project is firmly anchored at OsloMet
+(earlier HiOA) so the need for package naming to include organisation is
+redundant. HiOA is now called OsloMet so removing hioa from the codebase
 makes sense.
 
 ### Continued OData
@@ -236,9 +237,9 @@ statements from simple OData syntax. The following examples are supported:
     http://localhost/noark5v5/api/arkivstruktur/arkiv?$filter=contains(beskrivelse, 'hello')
     http://localhost/noark5v5/api/arkivstruktur/mappe?$filter=tittel eq 'hello'
 
-There is still a bit more work to be done and quality control. But this is a 
-good start. Going forward, we will integrate this to the controller, service and
-persistence layers. There is an ongoing clean-up of the controller / service 
+There is still a bit more work to be done and quality control. But this is a
+good start. Going forward, we will integrate this to the controller, app.service and
+persistence layers. There is an ongoing clean-up of the controller / app.service
 layers so we will gradually introduce this for all Noark entities.
 
 ### Testing framework 
@@ -263,8 +264,8 @@ gain access to spring-security 5, which is a major improvement.  Native JWT
 support is included in spring-security 5. 
 
 So far the upgrade worked. There were a few issues. This leaves the codebase 
-without any security implementation. So the current builds are starting 
-nikita but it is not possible to log on until we get security working.
+without any security implementation. So the current builds are starting
+app but it is not possible to log on until we get security working.
 
 ## 2018-02-23
 
@@ -288,26 +289,26 @@ We're seeing a mismatch between column names (owned_by) and variable names
 (ownedBy). HQL/ES require object names, while SQL requires column names. We 
 started to deal with this but it's going to be a tedious job!
 
-I'm still not sure how to deal with HQL. HQL looks like it wants to use a 
-Query object as I guess SQL is not an issue then. But it also supports a SQL 
-like syntax that can be used. But using Query means taking the database 
-closer into the Parser requiring a CriteriaBuilder. It just seems messy! 
+I'm still not sure how to deal with HQL. HQL looks like it wants to use a
+Query object as I guess SQL is not an issue then. But it also supports a SQL
+like syntax that can be used. But using Query means taking the database
+closer into the Parser requiring a CriteriaBuilder. It just seems messy!
 
 We added a file called odata_samples.txt and a simple java application called
-TestODataApp under nikita.webapp.run. We also added our own 
+TestODataApp under app.webapp.run. We also added our own
 walker currently called NikitaODataWalker. There are subclasses of this class
-that take care of the actual conversion from OData filter syntax to SQL/HQL 
-as well as Elasticsearch query JSON. 
+that take care of the actual conversion from OData filter syntax to SQL/HQL
+as well as Elasticsearch query JSON.
 
-I've decided to invest a little time on OData to HQL/SQL/ES as I think the 
-code is applicable for use by others. I've seen a good few requests for this 
-on the Internet but no solution other than Apache Olingo, but that requires 
-you to use their stack. We should also considering making this part of the 
-code available under a BSD-style license.  
+I've decided to invest a little time on OData to HQL/SQL/ES as I think the
+code is applicable for use by others. I've seen a good few requests for this
+on the Internet but no solution other than Apache Olingo, but that requires
+you to use their stack. We should also considering making this part of the
+code available under a BSD-style license.
 
-Once this code matures a little, it will be used at the service level in 
+Once this code matures a little, it will be used at the app.service level in
 order to filter the results of incoming requests. But we are not there yet. I
-think we need develop a solution and think about it. I see e.g that we are 
+think we need develop a solution and think about it. I see e.g that we are
 parsing the [contextPath][api] portion of a OData URL, when we just really want
 to take the command part.
 
@@ -352,31 +353,32 @@ job.
  - Architectural issues
 
 ### Architectural issues
+
 We continued work on[issue](https://gitlab
-.com/OsloMet-ABI/nikita-noark5-core/issues/105) and met some design issues. 
+.com/OsloMet-ABI/nikita-noark5-core/issues/105) and met some design issues.
 Should HTTPRequest be forward to the Service layer* Ideally it should not, but
-the way we are dealing with Hateaos links (being generated on a per user, 
-per authorities basis) meant that we had to consider it. Previously we were 
-basing the outgoing Hateoas links on the incoming HTTP request. This was to 
-easily migrate nikita to various hosts. As long as you had the correct 
-starting off address, the client could tell you what you should be creating 
+the way we are dealing with Hateaos links (being generated on a per user,
+per authorities basis) meant that we had to consider it. Previously we were
+basing the outgoing Hateoas links on the incoming HTTP request. This was to
+easily migrate app to various hosts. As long as you had the correct
+starting off address, the client could tell you what you should be creating
 as the address and contextPath. However, you **NEVER TRUST THE CLIENT!**. You
 really don't! We are also using JWT without any connection to the IP address,
-so we were left wondering if there was a possible attack vector here where 
-someone could hijack a token in someway and cause some trouble. Initially I 
+so we were left wondering if there was a possible attack vector here where
+someone could hijack a token in someway and cause some trouble. Initially I
 don't think so, but we were left with the thought of why bother opening for a
-potential issue. Just lock the outgoing hateaos link addresses down to what 
-the server wants them to be. 
+potential issue. Just lock the outgoing hateaos link addresses down to what
+the server wants them to be.
 
-The downside is that this limits nikita to 1 instance per hostname. Currently
-nikita is behind a virtual hostname in apache along with the actual hostname,
-but outgoing Hateaos links are set to nikita.hioa.no. 
- 
-So we are making the decision that nikita is limited to 1 instance per 
-hostname so we can move forward with one given architecture. However, it 
-probably is not very difficult to make multiple hostname supported by a single 
-nikita instance. But we are not going to code something, adding complexity, 
-breaking a clear line behind controller and service layer for something that 
+The downside is that this limits app to 1 instance per hostname. Currently
+app is behind a virtual hostname in apache along with the actual hostname,
+but outgoing Hateaos links are set to app.hioa.no.
+
+So we are making the decision that app is limited to 1 instance per
+hostname so we can move forward with one given architecture. However, it
+probably is not very difficult to make multiple hostname supported by a single
+app instance. But we are not going to code something, adding complexity,
+breaking a clear line behind controller and app.service layer for something that
 may be required in the future.
 
 ## 2018-02-02
@@ -392,10 +394,11 @@ time on Coverity now, but try to deal with issues as soon as they are reported.
 The codebase has shrunk a little as a result of this work.
   
 ### Clean codebase
+
 Hateaos handling was looked at and there were a number of approaches that were
 attempted. This work is described in [issue](https://gitlab
 .com/OsloMet-ABI/nikita-noark5-core/issues/105) and consumed most of the time. As
-a result nikita should be a little faster and use less memory. 
+a result app should be a little faster and use less memory.
 
 
 
@@ -421,26 +424,27 @@ setup. Also looking to see if we can get the Coverity scans to be included as
 part of travisCI. Need to dig a little more. We have completed a mdl course 
 on udemy and expect to start improving the GUI   
  
-### Going forward 
-Focus should be on wrapping up Coverity issues. We should start looking at 
-upgrading the project to the latest Spring version. With this JWT will have 
+### Going forward
+
+Focus should be on wrapping up Coverity issues. We should start looking at
+upgrading the project to the latest Spring version. With this JWT will have
 in-built support and we can remove JWT from the code-base. I'd also like to
-start on [SAML](https://www.jasha.eu/blogposts/2015/10/saml-authentication-angularjs-spring-security.html) 
+start on [SAML](https://www.jasha.eu/blogposts/2015/10/saml-authentication-angularjs-spring-security.html)
 integration. SAML was something we tried early on in the project but I was not
-able to get SAML/Feide to work with nikita. Hopefully with a little more 
+able to get SAML/Feide to work with app. Hopefully with a little more
 digging and better understanding of spring we will figure it out.
 
-The project also has a lot of warnings reported in Idea. Once the coverity 
+The project also has a lot of warnings reported in Idea. Once the coverity
 issues are dealt with, we should work at removing warnings and perhaps run Ideas
- own bug testing. 
- 
-An important [issue](https://gitlab.com/OsloMet-ABI/nikita-noark5-core/issues/105) 
+own bug testing.
+
+An important [issue](https://gitlab.com/OsloMet-ABI/nikita-noark5-core/issues/105)
 added this week is to do a rework of the hateoas handler. I think there is an
 extra comma appearing in output at the end that makes the JSON not valid and
-there may be a mismatch between collection types so that we are copying data 
+there may be a mismatch between collection types so that we are copying data
 to new objects when wrapping database results in Hateoas.
- 
-Long term, we need to get the testing framework moving. Even if it's just a 
+
+Long term, we need to get the testing framework moving. Even if it's just a
 single running test.
  
 
@@ -462,17 +466,18 @@ have changed our approach to profiles and limit profiles to database choice and 
 to switch on swagger.   
 
 ### Going forward
-We are using Coverity and there are a lot if issues being reported in Coverity. So we need to 
-stop adding new code and try to fix the backlog of Coverity issues. 
 
-We need to make the development process more TDD. Previously we had a half hearted approach to 
-this where pere kept his compliance testing tool ahead of nikita development. We need nikita 
-to drive this forward as well. Testing does seem to be complex in spring. The fact that the 
+We are using Coverity and there are a lot if issues being reported in Coverity. So we need to
+stop adding new code and try to fix the backlog of Coverity issues.
+
+We need to make the development process more TDD. Previously we had a half hearted approach to
+this where pere kept his compliance testing tool ahead of app development. We need app
+to drive this forward as well. Testing does seem to be complex in spring. The fact that the
 project is a multi module project might be complicating the issue.
 
-OData support is going to be make or break for nikita. We will try and add support via a 
+OData support is going to be make or break for app. We will try and add support via a
 odata2sql bridge and see if we can resolve it that way. Various implementations of OData
-exist, including a javascript version. But I wonder how close they are to the standard.   
+exist, including a javascript version. But I wonder how close they are to the standard.
 
 The other part of the project we will focus on is GUI. We have bought some udemy courses
 on material design and angular. Hopefully this will help us shine the code a little

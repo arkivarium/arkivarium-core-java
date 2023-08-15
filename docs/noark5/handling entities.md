@@ -1,6 +1,7 @@
-# How nikita interprets entities  
-During development we have seen the need to create a formal description of how nikita interprets various entities,
-  especially when it comes to serialising Hateoas style results. Nikita interprets that Noark has four type of entities:.
+# How app interprets entities
+
+During development we have seen the need to create a formal description of how app interprets various entities,
+especially when it comes to serialising Hateoas style results. Nikita interprets that Noark has four type of entities:.
 
 1. Primary entities
 2. Secondary entities (non-embeddable)
@@ -8,8 +9,10 @@ During development we have seen the need to create a formal description of how n
 4. Codes/list entities
 
 ## 1. Primary entities
+
 Primary entities are the entities that make up the fondsstructure (arkivstruktur). These are listed as the following
- * Fonds (arkiv)
+
+* Fonds (arkiv)
  * FondsCreator (arkivskaper)
  * Series (arkivdel)
  * ClassifiationSystem (klassifikasjonsystem)

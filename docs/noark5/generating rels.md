@@ -1,7 +1,7 @@
 # Clarification of _links generation during serialisation
 
-There is a need to have a formal agreed strategy on when _links are generated. We think the description of this is 
-lacking in the current version of the standard. This text will describe how nikita interprets _links.
+There is a need to have a formal agreed strategy on when _links are generated. We think the description of this is
+lacking in the current version of the standard. This text will describe how app interprets _links.
 
 ## Links on errors
  

@@ -2,17 +2,12 @@
 # Spring Boot configuration for the default profile.
 #
 # ===================================================================
-#logging:
-#  level:
-#    org:
-#      springframework:
-#        web: DEBUG
+
 
 server:
   servlet:
     context-path: /noark5v5
   port: 8092
-
 
 spring:
   h2:
@@ -25,29 +20,53 @@ spring:
     url: jdbc:h2:mem:n5DemoDb
     username: sa
     password:
+    hikari:
+      auto-commit: false
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     database: h2
+    hikari:
+      auto-commit: false
     show-sql: false
     properties:
-      hibernate.hbm2ddl.auto: create-drop
-      hibernate.discriminator.ignore_explicit_for_joined: true
-      hibernate.hbm2ddl.import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
+      hibernate:
+        format_sql: true
+        connection:
+          provider_disables_autocommit: true
+        search:
+          backend:
+            uris: ${ELASTIC_URI:http://localhost:9200}
+            username: ${ELASTIC_USER}
+            password: ${ELASTIC_PASS}
+      hbm2ddl:
+        auto: create-drop
+        hbm2ddl.import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
       org.hibernate.envers.audit_table_prefix: aud_
-  profiles:
-    active: security-oauth2-authentication
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: nikita-client
+            authorization-grant-type: authorization_code
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/recordkeeping}
+            user-name-attribute: preferred_username
+      resourceserver:
+        jwt:
+          issuer-uri: ${spring.security.oauth2.client.provider.keycloak.issuer-uri}
 
 logging:
   level:
     org:
+      #      springframework:
+      #        web: DEBUG
+      #      hibernate:
+      #        SQL: DEBUG
       reflections: OFF
 
-security:
-  oauth2:
-    client:
-      client-id: nikita-client
-      client-secret: $2a$10$52VgSTgNvk4ROc8YNYdTUesHhQTm2r5oeH1aiCtIgu3rfPQZQzswa
-      token-expiry: 28800 # seconds
 info:
   app.name: OsloMet Noark 5 Core
   build.version: ${project.version}
@@ -60,17 +79,21 @@ nikita:
     protocol:
       version: Noark 5.5.0
     build: 2019-08-07+0200
+  import:
+    allowed: false
   startup:
     create-demo-users: true # Populate database with some users
     create-directory-store: true # If not created, attempt to create
-    directory-store-name: /data/nikita/storage/ # Where to store documents
-    incoming-directory: /data/nikita/storage/incoming/ # Temporary storage area
+    base-directory: ${NIKITA_BASE_DIR:/data2}
+    directory-store-name: ${nikita.startup.base-directory}/nikita/storage/ # Where to store documents
+    incoming-directory: ${nikita.startup.base-directory}/nikita/storage/incoming/ # Temporary storage area
   application:
     pagination:
-      max-page-size: 10 # Set number of results per page. Currently not used
+      max-page-size: 10 # Set number of results per page, if request does not have one.
+      absolute-max-page-size: 1000 # Set maximum number of results per page. To prevent resource starvation.
     checksum-algorithm: SHA-256
   server:
-    hateoas:
+    links:
       publicAddress: http://localhost:8092
     details:
       conformity-levels:
@@ -80,3 +103,7 @@ nikita:
   simplechain:
     # Address to post a block to the chain.
     address: http://localhost:9792:/simplechain/block
+  download-dir:
+    outgoing: /data/nikita-mail-bridge/outgoing
+  mail-queue:
+    outgoing: outgoing-email

@@ -7,7 +7,7 @@ with some data. On linux all you have to is ./run_curl.sh from the
 nikita-noark5-core/core-webapp/src/main/resources/curl directory. If you want
 to use this script you have to make sure you have jq installed. jq is a JSON
 command line processor and can be found at (https://github.com/stedolan/jq)*
- 
+
 In accordance with the Noark 5v5 interface standard, the core advertises its
 services. The can be accessed by:
 
@@ -16,7 +16,7 @@ services. The can be accessed by:
       -X GET http://localhost:8092/noark5v5/
 
 A number of services are reported here, some are still in early development.
-The service at  http://localhost:8092/noark5v5/api/arkivstruktur is the
+The app.service at  http://localhost:8092/noark5v5/api/arkivstruktur is the
 one you probably are looking for. This is the Noark 5v5 interface.
 
     {

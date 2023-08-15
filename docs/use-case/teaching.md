@@ -1,6 +1,7 @@
-# Teaching use-cases for nikita
+# Teaching use-cases for app
 ## About
-nikita is a free and open source noark 5 core that has been developed to aid teaching and R&D at the Department of 
+
+app is a free and open source noark 5 core that has been developed to aid teaching and R&D at the Department of
 Archive, Library and Information Science at HiOA. There are two main goals in the project. 1. Develop a FOSS 
 Noark 5 core and 2. Develop a FOSS user interface to teach students case-handling, organisational structure, 
 classification as well as the technical side of understanding a recordkeeping system. The project has existed since 
@@ -13,7 +14,7 @@ with this interface standard.
 
 ## Introduction
 This document describes the use-case for how we intend to use the user-interface (GUI) for teaching purposes. We require
-a tool like nikita as it is important to teach students the basics of record keeping independent of any commercial 
+a tool like app as it is important to teach students the basics of record keeping independent of any commercial
 system. Our students should not associate the record keeping archive with any particular Noark system, rather they 
 should understand the basic principles of record keeping, how Noark relates to an underlying database structure and XML
 extractions and be able to apply them.  
@@ -35,14 +36,18 @@ servers, SMS message, Facebook posts, Excel spreadsheets etc. As such the goal o
 reach out and capture as many of the records belonging to the organisations fonds as possible.
 
 ### Description
-When a user logs on to nikita for the first time, they are assigned their own organisation (arkivskaper) in nikita that they control. 
-This organisation gets a UUID (SystemID) as an identifier and the user can assign whatever name they want to the organisation. 
+
+When a user logs on to app for the first time, they are assigned their own organisation (arkivskaper) in app that they
+control.
+This organisation gets a UUID (SystemID) as an identifier and the user can assign whatever name they want to the
+organisation.
 
 Can they assign others users so they can interact with their organisation?
 
 ### Feide integration
-It should be possible to integrate Feide as the authentication mechanism. When visiting nikita.hioa.no, if a user 
-isn't logged, they are brought to the feide login page where they authenticate themselves. They are then brought back to 
+
+It should be possible to integrate Feide as the authentication mechanism. When visiting app.hioa.no, if a user
+isn't logged, they are brought to the feide login page where they authenticate themselves. They are then brought back to
 the applicable dashboard for the role they have logged in.
 
 ### Dashboard
@@ -117,16 +122,17 @@ take classification from being an abstract concept to being something more concr
 the implication of their decisions through implementing a classification system and classes as a use case.
 
 ### Description
-First students will develop a classification system (on paper) for a well defined functional area, e.g kinder garden 
+
+First students will develop a classification system (on paper) for a well defined functional area, e.g kinder garden
 applications where they perhaps take in the understanding of the processes defined in ISO-15489. Then they come to
-nikita and log on as records manager and create the classification system as well as all the classes. This is followed
+app and log on as records manager and create the classification system as well as all the classes. This is followed
 by a quick case-handling session where they have to undertake a case-handling process where they use the classes that
-they created. This is functional classification. The students should also know what object classification is and when 
-and how to use it. Students will create an object based classification system to be used with e.g. buildings and 
+they created. This is functional classification. The students should also know what object classification is and when
+and how to use it. Students will create an object based classification system to be used with e.g. buildings and
 create files and records associated with buildings. We could follow up with objects being people and either create
 objects for a school fonds or a personnel fonds. A course work here could be a reflection note on the entire process.
-This should lead to discussions on various types of classification, lifetime expectancy of classes (buildings versus 
-people), creating cross-references between files in series using different classification system. 
+This should lead to discussions on various types of classification, lifetime expectancy of classes (buildings versus
+people), creating cross-references between files in series using different classification system.
 
 Users should be able to manipulate classification systems and undertake the following:
 
@@ -151,33 +157,33 @@ metadata e.g. class, document type. Typically we introduce the student to PDF/A 
 Word/LibreOffice
 
 ### Use-case 2. Case-handling via email
+
 This is a more complex use-case. Students log on to an email server (postmottak) and import a mail message. They do an
-appraisal on the contents and decide whether or not to formally create a case-file and assign it to a leader or 
+appraisal on the contents and decide whether or not to formally create a case-file and assign it to a leader or
 case-handler, assign the decision to a leader to take, or do nothing with the mail. This is a good point to ensure
 discussion around the concept of postmottak before describing the process of case-handling from postmottak.
 
-Assuming the mail is assigned to a case-handler, the case-handler will see the mail or an empty shell of a case-file 
-and begin case-handling. Typically we send a copy of the latest version of the Noark standard to the email server and 
+Assuming the mail is assigned to a case-handler, the case-handler will see the mail or an empty shell of a case-file
+and begin case-handling. Typically we send a copy of the latest version of the Noark standard to the email server and
 say that the standard is out for comments (på høring) and the students have to give comments on the standard. The
-students write their comments and upload the document to nikita within a journalpost. They set status to "F" (If I 
+students write their comments and upload the document to app within a journalpost. They set status to "F" (If I
 remember correctly). A status F on an outgoing document should then pop up in the leaders GUI. The leader then goes
 in and approves the outgoing letter (status G, if I remember correctly) and the case is finished. The records keeper
 then sees that this has occurred and goes in and check that everything is OK and formally ends the case-file.
 
-For this use-case, we require the use of the record-keeper, leader and case-handler roles. Repeating the description, 
-there is a loop, where record keeper starts the process by accepting the mail as a case-file, the case-handler handles 
-(saksbehandler) it and the leader approves the outgoing letter, before the  loop is complete and the records keeper 
+For this use-case, we require the use of the record-keeper, leader and case-handler roles. Repeating the description,
+there is a loop, where record keeper starts the process by accepting the mail as a case-file, the case-handler handles
+(saksbehandler) it and the leader approves the outgoing letter, before the loop is complete and the records keeper
 formally ends the case-file.
 
 Typically this is a group project where the students work in a group of three and each take one of the roles and we go
 through the process step by step. In edudots, there was just one archive so it was unproblematic to allow the students
-cooperate. In the new setup with nikita, each student owns their own archive/organisation. So it becomes a little more
+cooperate. In the new setup with app, each student owns their own archive/organisation. So it becomes a little more
 complicated to let them work in a group project like this.
 
-  
-Note. Petter has a much better use-case where nikita automatically copies email to a temporary series / mappe and the
-records keeper sorts post directly from here. Spam contents can be deleted or assigned to a daily deletion schedule, 
-while other documents are assigned and moved to the correct location.   
+Note. Petter has a much better use-case where app automatically copies email to a temporary series / mappe and the
+records keeper sorts post directly from here. Spam contents can be deleted or assigned to a daily deletion schedule,
+while other documents are assigned and moved to the correct location.
 
 Note: Both use-cases are required for the autumn 2017 semester.
 
@@ -200,15 +206,17 @@ Note: This is not something that we will prioritise for autumm 17 teaching. Nor 
  
 
 # Final note
-The above use-case expose all roles within Noark in a nice way. There is a clear defined separation of roles and 
-use-cases. There are other areas that can be exposed e.g comments, cross-references, keyword, meeting and committee 
-records. These are things that can explored after we review how well nikita works as a teaching tool. 
 
-This document does not cover the entirely of how nikita will be used as a teaching tool. We will also use to teach
+The above use-case expose all roles within Noark in a nice way. There is a clear defined separation of roles and
+use-cases. There are other areas that can be exposed e.g comments, cross-references, keyword, meeting and committee
+records. These are things that can explored after we review how well app works as a teaching tool.
+
+This document does not cover the entirely of how app will be used as a teaching tool. We will also use to teach
 students about the importance of understanding that the database is the archive and to see beyond a 'system' or GUI
 being the archive. This will then lead to discussion on data quality and how the system plays an important role in
-ensuring the data quality is high. Students will also create an extraction of the records they have created and this 
-will be used to help them understand XML and relationship between databases an XML with Noark / nikita as a use case. 
-We also think we will use nikita as a innsynsløsning and import the extractions students previously had created. Finally 
-we may use this as an aid in MBIB4140 Metadata and interoperability when we teach students REST, JSON etc. This document only
-covers the GUI part of using nikita as a teaching tool.
+ensuring the data quality is high. Students will also create an extraction of the records they have created and this
+will be used to help them understand XML and relationship between databases an XML with Noark / app as a use case.
+We also think we will use app as a innsynsløsning and import the extractions students previously had created. Finally
+we may use this as an aid in MBIB4140 Metadata and interoperability when we teach students REST, JSON etc. This document
+only
+covers the GUI part of using app as a teaching tool.

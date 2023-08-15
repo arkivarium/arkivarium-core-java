@@ -155,7 +155,7 @@ den i bruk og utforske det.
 Nikitaprosjektet ønsker tjenestegrensesnittet velkommen og stiller
 veldig gjerne opp i diskusjoner om tolkning av
 tjenestegrensesnittet. Nikita er bygget på moderne
-programmeringsrammeverk og utviklet i full åpenhet. Men nikita er ikke
+programmeringsrammeverk og utviklet i full åpenhet. Men app er ikke
 noe du kankjøpe. Nikita er først og fremst et verktøy for forsking og
 utvikling laget for å fremme forskning på arkivfeltet. Systemer som
 virker sammen har alltid vært hovedfokus og vil være det fremover. Det
@@ -185,12 +185,12 @@ epostenes trådinformasjon brukes til å legge eposttråder i samme
 arkivmappe, og en annen testklient som henter epost ut av en
 arkivmappe på mbox-format slik at en vanlig epostklient kan brukes til
 å lese igjennom og svare på epostene i en arkivmappe. De som vil ta en
-titt på Nikita kan besøke https://nikita.oslomet.no og logge inn med
+titt på Nikita kan besøke https://app.oslomet.no og logge inn med
 brukernavn «admin@example.com» og passord «password». Dette gir
 tilgang til det forenklede brukergrensesnittet som brukes til
 undervisning. De som heller vil ta en titt under panseret kan besøke
-https://nikita.oslomet.no/browse.html og der se hvordan API-et
-fungerer mer i detalj.  Innloggingsdetaljer her er det samme som for
+https://app.oslomet.no/browse.html og der se hvordan API-et
+fungerer mer i detalj. Innloggingsdetaljer her er det samme som for
 brukergrensesnittet.
 
 # Test fremtiden med Nikita
@@ -210,10 +210,10 @@ metadata- og dokumentasjonsbehov er kartlagt og standardisert.
 Nikita utvikles av en liten prosjektgruppe, og vi er alltid
 interessert å bli flere. Hvis en åpen, fri og standardisert tilnærming
 til arkivering høres interessant ut, bli med oss på veien videre. Vi
-er tilstede på IRC-kanalen #nikita hos FreeNode (tilgjengelig via
-nettleser på https://webchat.freenode.net?channels=#nikita), og har en
-e-postliste nikita-noark@nuug.no hos NUUG (tilgjengelig for påmelding
-og arkiv på https://lists.nuug.no/mailman/listinfo/nikita-noark) der
+er tilstede på IRC-kanalen #app hos FreeNode (tilgjengelig via
+nettleser på https://webchat.freenode.net?channels=#app), og har en
+e-postliste app-noark@nuug.no hos NUUG (tilgjengelig for påmelding
+og arkiv på https://lists.nuug.no/mailman/listinfo/app-noark) der
 en kan følge med eller være med oss på den spennende veien videre.
 
 ## fremhevet sitater til teksten
@@ -226,6 +226,6 @@ en kan følge med eller være med oss på den spennende veien videre.
 
 # Figurer
 
-![Skjermbilde fra nettsidegrensesnittet til Nikita](images/nikita-arkivdel.png)
+![Skjermbilde fra nettsidegrensesnittet til Nikita](images/app-arkivdel.png)
 
 ![UML-utsnitt for mappe fra spesifikasjonen](images/uml-arkivstruktur-mappe.png){width=80%}

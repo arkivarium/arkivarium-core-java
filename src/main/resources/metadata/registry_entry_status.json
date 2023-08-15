@@ -1,6 +1,14 @@
 {
   "RegistryEntryStatus": [
     {
+      "code": "R",
+      "codename": "Registrert"
+    },
+    {
+      "code": "K",
+      "codename": "Klar for ekspedering"
+    },
+    {
       "code": "J",
       "codename": "Journalført"
     },
